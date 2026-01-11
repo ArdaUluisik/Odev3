@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Odev3.Views.HaberlerPage"
+             Title="Haberler"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#121212}">
+
+    <Grid RowDefinitions="Auto, Auto, *">
+
+        
+        <Label Text="Haber Merkezi"
+               BackgroundColor="{AppThemeBinding Light=#B00000, Dark=#800000}"
+               TextColor="{AppThemeBinding Light=White, Dark=White}"
+               Padding="15"
+               FontAttributes="Bold"
+               FontSize="20"
+               HorizontalTextAlignment="Center"/>
+
+       
+        <CollectionView x:Name="cvKategoriler"
+                        Grid.Row="1"
+                        HeightRequest="60"
+                        SelectionMode="Single"
+                        SelectionChanged="CvKategoriler_SelectionChanged"
+                        Margin="0,10,0,5">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="15,10"
+                           CornerRadius="20"
+                           HasShadow="False"
+                           Margin="5,5"
+                           BorderColor="#800000"
+                           BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}">
+
+                        <Label Text="{Binding Baslik}"
+                               FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                               VerticalOptions="Center"/>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <CollectionView x:Name="cvHaberler"
+                        Grid.Row="2"
+                        SelectionMode="Single"
+                        SelectionChanged="CvHaberler_SelectionChanged">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="15"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10,5"
+                           Padding="0"
+                           CornerRadius="15"
+                           HasShadow="True"
+                           BorderColor="{AppThemeBinding Light=#DDDDDD, Dark=#333333}"
+                           BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}">
+
+                        <VerticalStackLayout>
+
+                            <Image Source="{Binding Resim}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="200"
+                                   WidthRequest="400"
+                                   BackgroundColor="{AppThemeBinding Light=#EAEAEA, Dark=#2D2D2D}"/>
+
+                            <VerticalStackLayout Padding="15" Spacing="8">
+                                <Label Text="{Binding Baslik}"
+                                       FontAttributes="Bold"
+                                       FontSize="16"
+                                       MaxLines="3"
+                                       LineBreakMode="TailTruncation"
+                                       TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+
+                                <Label Text="{Binding Tarih}"
+                                       FontSize="12"
+                                       TextColor="{AppThemeBinding Light=#555555, Dark=#AAAAAA}"/>
+                            </VerticalStackLayout>
+
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <ActivityIndicator x:Name="loading"
+                           Grid.Row="2"
+                           IsRunning="False"
+                           IsVisible="False"
+                           Color="{AppThemeBinding Light=#B00000, Dark=#FF3333}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+    </Grid>
+</ContentPage>

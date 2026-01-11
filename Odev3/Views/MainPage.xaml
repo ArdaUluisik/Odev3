@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Odev3.Views.MainPage"
+             Title="Ana Sayfa">
+    <VerticalStackLayout Spacing="15" Padding="20" HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="ÖDEV-3" FontSize="32" HorizontalOptions="Center"/>
+        <Image Source="vesikalik.png" HeightRequest="200" WidthRequest="200"/>
+
+        <Label Text="Arda Uluışık" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"/>
+        <Label Text="23010310077" FontSize="20" HorizontalOptions="Center"/>
+        <Label Text="Bartın Üniversitesi Bilgisayar Mühendisliği" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+    </VerticalStackLayout>
+</ContentPage>

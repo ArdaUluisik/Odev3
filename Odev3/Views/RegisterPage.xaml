@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Odev3.Views.RegisterPage"
+             Title="Kaydol">
+
+    <VerticalStackLayout Padding="30"
+                         Spacing="20"
+                         VerticalOptions="Center">
+
+        <Entry x:Name="entName"
+               Placeholder="Ad Soyad"/>
+
+        <Entry x:Name="entEmail"
+               Placeholder="Email"
+               Keyboard="Email"/>
+
+        <Entry x:Name="entPass"
+               Placeholder="Şifre"
+               IsPassword="True"/>
+
+        <Button Text="Kaydol"
+                Clicked="BtnKaydol_Clicked"/>
+
+        <Button Text="Zaten bir hesabım var"
+                BackgroundColor="Transparent"
+                TextColor="{AppThemeBinding Light=Blue, Dark=LightBlue}"
+                Clicked="BtnLoginDon_Clicked"/>
+    </VerticalStackLayout>
+
+</ContentPage>

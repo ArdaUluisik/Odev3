@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Odev3.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Odev3.Views"
+    Title="Odev 3"
+    FlyoutBehavior="Flyout">
+
+    <ShellContent
+        Route="LoginPage"
+        ContentTemplate="{DataTemplate views:LoginPage}" />
+
+    <FlyoutItem Title="Anasayfa" Icon="home.png">
+        <ShellContent
+            Route="MainPage"
+            ContentTemplate="{DataTemplate views:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Kurlar" Icon="money.png">
+        <ShellContent
+            Route="KurlarPage"
+            ContentTemplate="{DataTemplate views:KurlarPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Haberler" Icon="news.png">
+        <ShellContent
+            Route="HaberlerPage"
+            ContentTemplate="{DataTemplate views:HaberlerPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Hava Durumu" Icon="weather.png">
+        <ShellContent
+            Route="HavaDurumuPage"
+            ContentTemplate="{DataTemplate views:HavaDurumuPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Yapılacaklar" Icon="todo.png">
+        <ShellContent
+            Route="YapilacaklarPage"
+            ContentTemplate="{DataTemplate views:YapilacaklarPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Ayarlar" Icon="settings.png">
+        <ShellContent
+            Route="AyarlarPage"
+            ContentTemplate="{DataTemplate views:AyarlarPage}" />
+    </FlyoutItem>
+
+    <MenuItem Text="Çıkış Yap" Clicked="OnLogoutClicked" />
+
+</Shell>

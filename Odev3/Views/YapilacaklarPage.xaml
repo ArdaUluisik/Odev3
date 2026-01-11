@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Odev3.Views.YapilacaklarPage"
+             Title="Yapılacaklar Listesi"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#121212}">
+
+    <Grid RowDefinitions="Auto, *">
+
+        <Button Grid.Row="0"
+                Text="+ Yeni Görev Ekle"
+                Clicked="BtnYeniGorev_Clicked"
+                BackgroundColor="{AppThemeBinding Light=#6200EE, Dark=#BB86FC}"
+                TextColor="{AppThemeBinding Light=White, Dark=#121212}"
+                FontAttributes="Bold"
+                Margin="15"
+                CornerRadius="10"
+                HeightRequest="50"/>
+
+        <CollectionView x:Name="cvGorevler"
+                        Grid.Row="1"
+                        Margin="15,0,15,15"
+                        SelectionMode="Single"
+                        SelectionChanged="CvGorevler_SelectionChanged">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10"
+                           Margin="0,0,0,5"
+                           CornerRadius="10"
+                           HasShadow="False"
+                           BorderColor="{AppThemeBinding Light=#DDDDDD, Dark=#333333}"
+                           BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}">
+
+                        <Grid ColumnDefinitions="Auto, *, Auto">
+
+                            <CheckBox Grid.Column="0"
+                                      IsChecked="{Binding YapildiMi}"
+                                      CheckedChanged="CheckBox_CheckedChanged"
+                                      Color="{AppThemeBinding Light=#6200EE, Dark=#BB86FC}"
+                                      VerticalOptions="Center"/>
+
+                            <VerticalStackLayout Grid.Column="1"
+                                                 VerticalOptions="Center"
+                                                 Padding="10,0,5,0"
+                                                 Spacing="2">
+
+                                <Label Text="{Binding Baslik}"
+                                       FontSize="17"
+                                       FontAttributes="Bold"
+                                       MaxLines="1"
+                                       LineBreakMode="TailTruncation"
+                                       TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+
+                                <Label Text="{Binding Tarih, StringFormat='📅 {0:dd.MM.yyyy HH:mm}'}"
+                                       FontSize="11"
+                                       TextColor="{AppThemeBinding Light=#555555, Dark=#AAAAAA}"/>
+                            </VerticalStackLayout>
+
+                            <ImageButton Grid.Column="2"
+                                         Source="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
+                                         HeightRequest="25"
+                                         WidthRequest="25"
+                                         BackgroundColor="Transparent"
+                                         Clicked="BtnSil_Clicked"
+                                         CommandParameter="{Binding .}"
+                                         VerticalOptions="Center"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.EmptyView>
+                <VerticalStackLayout HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Spacing="10">
+
+                    <Label Text="📝"
+                           FontSize="50"
+                           HorizontalTextAlignment="Center"/>
+
+                    <Label Text="Görev eklemek için butona bas."
+                           HorizontalTextAlignment="Center"
+                           TextColor="{AppThemeBinding Light=#666666, Dark=#888888}"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+
+        <ActivityIndicator x:Name="loading"
+                           Grid.Row="1"
+                           IsRunning="False"
+                           IsVisible="False"
+                           Color="{AppThemeBinding Light=#6200EE, Dark=#BB86FC}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+    </Grid>
+</ContentPage>

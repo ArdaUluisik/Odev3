@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Odev3.Views.LoginPage"
+             Title="Giriş">
+    <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+        <Image Source="dotnet_bot.png" HeightRequest="150" />
+        <Entry x:Name="entEmail" Placeholder="Email" Keyboard="Email"/>
+        <Entry x:Name="entPass" Placeholder="Şifre" IsPassword="True"/>
+        <Button Text="Oturum Aç" Clicked="BtnLogin_Clicked"/>
+        <Button Text="Kaydol" Clicked="BtnRegister_Clicked" BackgroundColor="Gray"/>
+    </VerticalStackLayout>
+</ContentPage>
